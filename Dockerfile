@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.3.1-base-ubuntu20.04
+FROM rocm/dev-ubuntu-20.04:latest
 
 SHELL ["/bin/bash", "-c"]
 
@@ -16,7 +16,8 @@ RUN eval "$($HOME/miniconda/bin/conda shell.bash hook)" \
  && cd /root/stable-diffusion \
  && conda env create -f environment.yaml \
  && conda activate ldm \
- && pip install gradio==3.1.7
+ && pip install gradio==3.1.7 \
+ && pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/rocm5.1.1
 
 VOLUME /root/.cache
 VOLUME /data
