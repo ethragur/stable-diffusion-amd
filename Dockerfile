@@ -32,6 +32,7 @@ RUN ln -s /data /root/stable-diffusion/models/ldm/stable-diffusion-v1 \
  && mkdir -p /output /root/stable-diffusion/outputs \
  && ln -s /output /root/stable-diffusion/outputs/txt2img-samples
 
+ENV HSA_OVERRIDE_GFX_VERSION=10.3.0
 WORKDIR /root/stable-diffusion
 
 ENTRYPOINT ["/root/stable-diffusion/docker-bootstrap.sh"]
