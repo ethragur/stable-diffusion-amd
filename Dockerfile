@@ -17,7 +17,7 @@ RUN eval "$($HOME/miniconda/bin/conda shell.bash hook)" \
  && conda env create -f environment.yaml \
  && conda activate ldm \
  && pip install gradio==3.1.7 \
- && pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/rocm5.1.1
+ && pip3 install --upgrade torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/rocm5.1.1
 
 VOLUME /root/.cache
 VOLUME /data
